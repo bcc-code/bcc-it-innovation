@@ -37,4 +37,15 @@ This project is primarily intended as a technology playground - a place for test
 - [ ] Terraform - Infrastructure deployement
 - [ ] RavenDB - document, search database
 
-## Teams
+
+
+### Open Source References
+
+[Meilisearch](https://www.meilisearch.com)
+
+
+### Third Party
+
+[Elastic Enterprise Search](https://www.elastic.co/enterprise-search)
+
+[Algolia](https://www.algolia.com)
