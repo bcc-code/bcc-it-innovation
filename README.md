@@ -5,11 +5,11 @@ Search service prototype and technology playground.
 
 ### Open source
 
-[https://www.meilisearch.com](Meilisearch)
+[Meilisearch](https://www.meilisearch.com)
 
 
 ### Third Party
 
-[https://www.elastic.co/enterprise-search](Elastic Enterprise Search)
+[Elastic Enterprise Search](https://www.elastic.co/enterprise-search)
 
-[https://www.algolia.com](Algolia)
+[Algolia](https://www.algolia.com)
