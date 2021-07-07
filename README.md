@@ -1,12 +1,32 @@
-# BCC Search
+# BCC IT Innovation
 
 ## Introduction
-BCC Search is a set of services that provide a search experience with data from multiple platforms (persons, articles, litterature, audio, tv etc.).
-
-This project is primarily intended as a technology playground - a place for testing ideas and innovating.
+The purpose of this repository is to facilitate collective learning of new techniques, technologies and exploration of ideas during Innovation Days.
 
 
-## Components
+## Innovation Days - Summer 2021
+
+
+### Topics
+1. **Terraform** - infrastructure deployment automation
+2. **Microfrontends** - independently deployable UI modules
+3. **Vue.js** - front-end app development
+4. **Tailwind** - front-end UI development
+5. **Microservices** - modular, event driven architecture
+6. **Flutter** - cross-platform app development
+7. **Webhooks** - public event APIs
+8. **ML/AI** - artificial intelligence
+9. **Automated Testing** - cloud scale
+10. **Hasura** - Real time GraphQL
+11. **RavenDB** - Document database
+12. **Other** - :-)
+
+
+### Reference Architecture: Search Sevice
+As a teaser / use case for experimenting with the above topics, a reference microservice-based architecture for a multi-source search service has been provided. (See "search" folder)
+
+
+#### Components
 
 * **app** - flutter based mobile app
 * **ui** - microfrontend UI for search
@@ -21,31 +41,13 @@ This project is primarily intended as a technology playground - a place for test
 * **providers** - content provider services, that push content to the search-content service. These may be scheduled tasks or event-triggered cloud functions.
 
 
-## Learning Goals
-
-- [ ] Microfrontends - technologies, techniques
-- [ ] Flutter - app development
-- [ ] Microservice architecture
-- [ ] Event driven architecture - messaging infrastructure
-- [ ] Webhooks
-- [ ] Autoscaling
-- [ ] Vue.js - frontend development
-- [ ] Tailwind UI - frontend component design
-- [ ] Machine learning / AI
-- [ ] Automated tests - cloudscale
-- [ ] Analytics
-- [ ] Terraform - Infrastructure deployement
-- [ ] RavenDB - document, search database
-
-
-
-### Open Source References
+#### Open Source References for Inspiration
 
 [Meilisearch](https://www.meilisearch.com)
 
-
-### Third Party
+#### Third Party
 
 [Elastic Enterprise Search](https://www.elastic.co/enterprise-search)
 
 [Algolia](https://www.algolia.com)
+
