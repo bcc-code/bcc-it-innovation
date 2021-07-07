@@ -22,7 +22,7 @@ The purpose of this repository is to facilitate collective learning of new techn
 12. **GO** - Programming language
 
 
-### Reference Architecture: Search Sevice
+### Reference Architecture: Search Service
 As a teaser / use case for experimenting with the above topics, a reference microservice-based architecture for a multi-source search service has been provided. (See "search" folder)
 
 ![image](https://user-images.githubusercontent.com/1876625/124805543-f2980880-df5b-11eb-9217-e1261e6838e0.png)
