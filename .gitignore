@@ -1,8 +1,11 @@
-﻿################################################################################
+################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
 /.vs
+search/services/search-api/raven-db-api/raven-db-api/bin
+search/services/search-api/raven-db-api/raven-db-api/obj
+search/services/search-api/raven-db-api/.idea
 /auth/.vs/bcc-auth
 /auth/Bcc.Auth/bin
 /auth/Bcc.Auth/obj
