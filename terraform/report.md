@@ -1,6 +1,6 @@
 # Learn terraform for your (and others) good!
 
-This is report from Innovation day for me as I am unable tio attend next day for personal reasons, if you define personal as 'gathering of friends that I have not seen for 1-2 years` as personal. Sorry, I do not like events clashing but it is unavoidable sometimes.
+This is report from Innovation day for me as I am unable to attend next day for personal reasons. For TL:DR version go to [Summary](#summary)
 
 ## Goals
 This day had more than one goal from my perspective. I will list them and talk shortly about each of them
@@ -39,7 +39,6 @@ As for main goals (1. and 2.) potential selling points are:
 - ability to quickly provision numerous dev/test instances and quickly delete them when not needed
 
 ## Day debrief
-### before lunch
 This was pretty standard start:
 1. Download and install tools
 2. Run 'hello-world' of terraform
@@ -54,6 +53,35 @@ I ended up creating first gcp resource using terrafom: VPC network.
 4. Go to second tutorial on modifying terraform plan.
 During this step I learned that using git only from cli is much harder than I remebered. I guess that is why almost no one knows how to do it nowadays. VS code plugin or git Kraken are definately much more user-friendly.
 
-5. First real problems
+5. First real problems: 
 After reaching step in which we learn about variables good expierience was already lost. Following tutorial to the letter resulted in error when aplying new configration which was not immediately understood by me. From my understanding error was stating that variables are not resolved correctly. After some time of looking for awnsers I decided to go and check different version of same tutorial, deployed in google cloud editor. There I learned tutorials are not exactly the same an, more importantly, terraform versions differ greatly. 
 
+6. Wokring in both versions of a tutorial I managed to go through them up until last point - using already implemented module for managing networks. This failed repeatadly because of terraform version mismatch.
+
+7. At the end I destroyed all resources one last time.
+
+## Summary
+I started the day with two, somewhat separate goals:
+1. To learn a bit about terraform and how we can use it to control our infrstructure in developer-friendly way
+2. To try as much as I can to not use GUI apps and focus on leveraging zsh+vim environment
+
+I can safely say, that I am happy with how far I came with these goals.
+At the end of the day I managed to run hundreds of actions (creating, updating and deleting resources) inside GCP almost without touching its UI
+which itself is quite impressive. I am sure tutorial experience could be much better, nonetheless I deem this exercise worthy of time spent. Some notes in form of contained points:
+- terraform seems to be very powerfull tool
+- being able to plan infrastructure in declarative, verbose way and execute these plans almost without human interaction is very good
+- learning curve is definately not smooth, as numbers of parameters increase you need to learn about new features quickly, or risk creating a mess not easier to maintain than when configuring every service and resource manually
+- secret management becomes yet again more important
+- if BCC-ITs is interested in versioning infrastructure changes, terraform will be invaluable in achieving this goal
+- tutorial experience for me was mediocore at best
+
+As far as my secondary goal (not using any GUIs whatsever if I can) went, I am very happy:
+- additional cli tools that I don't always remember are very handy
+- bat (modern cat version) is my favourite cli tool now!
+- git-cli is still recipe for disaster if you are not quite advanced with git
+- gcloud is really nice, although a bit obtuse (not as much as git)
+- vim is good even if you don't know all its magic
+- I definately need to learn to use grep, sed and curl much better
+
+To sum it up in one sentences:
+It is 100% worthy to pursue using terraform to provision, manage and destroy infrastructure on demand if we want to have infrastructure as a code. 
