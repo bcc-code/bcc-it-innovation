@@ -25,7 +25,15 @@ namespace raven_db_api.Controllers
         [HttpGet]
         public IActionResult GetSearchResult()
         {
-            _searchRepository.InitStore();
+            // _searchRepository.
+            return Ok("Ok");
+        }
+        
+        
+        [HttpPost]
+        public IActionResult AddSearch()
+        {
+            _searchRepository.AddDocument();
             return Ok("Ok");
         }
     }

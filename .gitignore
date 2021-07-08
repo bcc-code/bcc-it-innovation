@@ -6,3 +6,12 @@
 search/services/search-api/raven-db-api/raven-db-api/bin
 search/services/search-api/raven-db-api/raven-db-api/obj
 search/services/search-api/raven-db-api/.idea
+/auth/.vs/bcc-auth
+/auth/Bcc.Auth/bin
+/auth/Bcc.Auth/obj
+/auth/Bcc.Auth.Stores.Raven/bin
+/auth/Bcc.Auth.Stores.Raven/obj
+/auth/bin/Debug
+/auth/obj
+/auth/Bcc.Auth.Server/bin
+/auth/Bcc.Auth.Server/obj
