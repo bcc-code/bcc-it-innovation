@@ -52,4 +52,5 @@ I ended up creating first gcp resource using terrafom: VPC network.
 
 
 4. Go to second tutorial on modifying terraform plan.
+During this step I learned that using git only from cli is much harder than I remebered. I guess that is why almost no one knows how to do it nowadays. VS code plugin or git Kraken are definately much more user-friendly.
 
