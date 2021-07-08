@@ -10,10 +10,10 @@ terraform {
 
 
 provider "google" {
-  credentials = file("../bcc-learn-terraform-88012076b732.json")
-  project = "bcc-learn-terraform"
-  region  = "us-central1"
-  zone    = "us-central1-c"
+  credentials = file(var.credentials_file)
+  project = var.project
+  region  = var.region
+  zone    = var.zone
 }
 
 resource "google_project_service" "service" {
@@ -33,7 +33,7 @@ resource "google_compute_network" "vpc_network" {
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
 
-  machine_type = "f1-micro"
+  machine_type = var.machine_types[var.environment]
   tags         = ["web", "dev"]
 
   boot_disk {
