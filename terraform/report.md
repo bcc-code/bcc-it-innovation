@@ -24,7 +24,7 @@ I gave up on being super-strict all the time but nonetheless things I try to enf
 
 Ability to work from terminal environment is priceless in cloud debugging and other operations on remote infrastructure and is really helpful when your OS is some Linux distro. I am ok-ish proficient with unix shells but there is number of tasks I need to use GUI and mouse for. In everyday work it is often big hurdle to try improve your own workflow as it gets in the way of more important things and raises frustration often. So by using Innovation Day for experimenting with this setup I can more easily try to fish for some workflow improvements in work-safe manner.
 
-### Useful stuff
+#### Useful stuff
 Some links that might be useful for anyone that uses Linux:
 -  [this is curated, small list of really useful, modern cli tools for Linux](https://github.com/ibraheemdev/modern-unix)
 - [Much more app but with vasrying quality](https://github.com/agarrharr/awesome-cli-apps)
@@ -32,8 +32,24 @@ Some links that might be useful for anyone that uses Linux:
 - [VIM tutorial online](https://www.openvim.com/)
 - [Vim tutorial as a game](https://vim-adventures.com/)
 
-## Learn terraform
+### Learn terraform
 
 As for main goals (1. and 2.) potential selling points are: 
 - ability to keep gcp infratructure-as-a-code
 - ability to quickly provision numerous dev/test instances and quickly delete them when not needed
+
+## Day debrief
+### before lunch
+This was pretty standard start:
+1. Download and install tools
+2. Run 'hello-world' of terraform
+3. Start reading tutorial on terraform in GCP
+
+Point number 3 was immediately problematic as tutorial is written for using google cloud shell.
+Trying to recreate each command in gcloud cli tool ended up in creating service account without needed roles. I then created new account using cloud shell with no problems.
+
+I ended up creating first gcp resource using terrafom: VPC network.
+
+
+4. Go to second tutorial on modifying terraform plan.
+
