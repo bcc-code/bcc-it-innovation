@@ -4,16 +4,14 @@
     <projectFile>raven-db-api/raven-db-api.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e0a7697-33f9-4ab0-bc92-c8302a0de5ca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/raven-db-api/docker-compose.yml" afterDir="false" />
-    </list>
+    <list default="true" id="1e0a7697-33f9-4ab0-bc92-c8302a0de5ca" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -74,13 +72,14 @@
       <option name="presentableId" value="Default" />
       <updated>1625737308689</updated>
       <workItem from="1625738182295" duration="597000" />
+      <workItem from="1625739068728" duration="636000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -92,6 +91,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

@@ -7,16 +7,16 @@ services:
       - 8080:8080
       - 38888:38888
     extra_hosts:
-      - "0.0.0.0:10.211.55.2"
+      - "localhost:10.211.55.2"
     environment:
       - RAVEN_ARGS='--Setup.Mode=None'
       - RAVEN_Security_UnsecuredAccessAllowed=PublicNetwork
       - RAVEN_Setup_Mode=None
       - RAVEN_License_Eula_Accepted=true
-      - "RAVEN_ServerUrl=http://0.0.0.0:8080"
-      - "RAVEN_PublicServerUrl=http://0.0.0.0:8080"
-      - "RAVEN_ServerUrl_Tcp=tcp://0.0.0.0:38888"
-      - "RAVEN_PublicServerUrl_Tcp=tcp://0.0.0.0:38888"
+      - "RAVEN_ServerUrl=http://localhost:8080"
+      - "RAVEN_PublicServerUrl=http://localhost:8080"
+      - "RAVEN_ServerUrl_Tcp=tcp://localhost:38888"
+      - "RAVEN_PublicServerUrl_Tcp=tcp://localhost:38888"
   raven2:
     container_name: raven2
     image: ravendb/ravendb
@@ -24,15 +24,15 @@ services:
       - 8081:8080
       - 38889:38888
     extra_hosts:
-      - "0.0.0.0:10.211.55.2"
+      - "localhost:10.211.55.2"
     environment:
       - RAVEN_Security_UnsecuredAccessAllowed=PublicNetwork
       - RAVEN_Setup_Mode=None
       - RAVEN_License_Eula_Accepted=true
-      - "RAVEN_ServerUrl=http://0.0.0.0:8080"
-      - "RAVEN_PublicServerUrl=http://0.0.0.0:8081"
-      - "RAVEN_ServerUrl_Tcp=tcp://0.0.0.0:38888"
-      - "RAVEN_PublicServerUrl_Tcp=tcp://0.0.0.0:38889"
+      - "RAVEN_ServerUrl=http://localhost:8080"
+      - "RAVEN_PublicServerUrl=http://localhost:8081"
+      - "RAVEN_ServerUrl_Tcp=tcp://localhost:38888"
+      - "RAVEN_PublicServerUrl_Tcp=tcp://localhost:38889"
   raven3:
     container_name: raven3
     image: ravendb/ravendb
@@ -40,12 +40,12 @@ services:
       - 8082:8080
       - 38890:38888
     extra_hosts:
-      - "0.0.0.0:10.211.55.2"
+      - "localhost:10.211.55.2"
     environment:
       - RAVEN_Security_UnsecuredAccessAllowed=PublicNetwork
       - RAVEN_Setup_Mode=None
       - RAVEN_License_Eula_Accepted=true
-      - "RAVEN_ServerUrl=http://0.0.0.0:8080"
-      - "RAVEN_PublicServerUrl=http://0.0.0.0:8082"
-      - "RAVEN_ServerUrl_Tcp=tcp://0.0.0.0:38888"
-      - "RAVEN_PublicServerUrl_Tcp=tcp://0.0.0.0:38890"
+      - "RAVEN_ServerUrl=http://localhost:8080"
+      - "RAVEN_PublicServerUrl=http://localhost:8082"
+      - "RAVEN_ServerUrl_Tcp=tcp://localhost:38888"
+      - "RAVEN_PublicServerUrl_Tcp=tcp://localhost:38890"
