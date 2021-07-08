@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CfhkH83yQIZi2LPQLEXsgxFOBbwbuiFHKG4AJ3X+C4mDHqpC4954csJDSyX11HaRBjuYYu1jmNsBDnC3XFKpeg==",
+  "dgSpecHash": "vA7e5IyqMfY3Hf3NW0JUxiOr5oYxhG42E8gek3ugWX0vZOi4hXZ1G0loYPmATY3L8yYssa1wA/KmOn+iJHdA2Q==",
   "success": true,
-  "projectFilePath": "/Users/RS/Documents/Code/bcc-it-innovation/search/services/raven-db-api/raven-db-api/raven-db-api.csproj",
+  "projectFilePath": "/Users/RS/Documents/Code/bcc-it-innovation/search/services/search-api/raven-db-api/raven-db-api/raven-db-api.csproj",
   "expectedPackageFiles": [
     "/Users/RS/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/Users/RS/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",

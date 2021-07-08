@@ -198,11 +198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/RS/Documents/Code/bcc-it-innovation/search/services/raven-db-api/raven-db-api/raven-db-api.csproj",
+      "projectUniqueName": "/Users/RS/Documents/Code/bcc-it-innovation/search/services/search-api/raven-db-api/raven-db-api/raven-db-api.csproj",
       "projectName": "raven-db-api",
-      "projectPath": "/Users/RS/Documents/Code/bcc-it-innovation/search/services/raven-db-api/raven-db-api/raven-db-api.csproj",
+      "projectPath": "/Users/RS/Documents/Code/bcc-it-innovation/search/services/search-api/raven-db-api/raven-db-api/raven-db-api.csproj",
       "packagesPath": "/Users/RS/.nuget/packages/",
-      "outputPath": "/Users/RS/Documents/Code/bcc-it-innovation/search/services/raven-db-api/raven-db-api/obj/",
+      "outputPath": "/Users/RS/Documents/Code/bcc-it-innovation/search/services/search-api/raven-db-api/raven-db-api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/RS/.nuget/NuGet/NuGet.Config"
