@@ -19,11 +19,13 @@ The purpose of this repository is to facilitate collective learning of new techn
 9. **Automated Testing** - cloud scale
 10. **Hasura** - Real time GraphQL
 11. **RavenDB** - Document database
-12. **Other** - :-)
+12. **GO** - Programming language
 
 
-### Reference Architecture: Search Sevice
+### Reference Architecture: Search Service
 As a teaser / use case for experimenting with the above topics, a reference microservice-based architecture for a multi-source search service has been provided. (See "search" folder)
+
+![image](https://user-images.githubusercontent.com/1876625/124805543-f2980880-df5b-11eb-9217-e1261e6838e0.png)
 
 
 #### Components
@@ -39,6 +41,7 @@ As a teaser / use case for experimenting with the above topics, a reference micr
   - **search-enrichtment** - AI powered service which enriches the search experience by discovering _related content_ and suggesting search phrases based on previous searches
   - **search-log** - a simple log of searches performed, and ideally the types of profiles that perfomed these searches. Used as input to the search-enrichment service, and also as a lookup for "my searches" etc.
 * **providers** - content provider services, that push content to the search-content service. These may be scheduled tasks or event-triggered cloud functions.
+
 
 
 #### Open Source References for Inspiration
