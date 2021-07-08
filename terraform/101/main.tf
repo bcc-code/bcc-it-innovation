@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "google" {
-  credentials = file("../terra-key.json")
+  credentials = file("../bcc-learn-terraform-88012076b732.json")
 
   project = "bcc-learn-terraform"
   region  = "us-central1"
