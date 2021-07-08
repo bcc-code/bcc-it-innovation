@@ -54,3 +54,6 @@ I ended up creating first gcp resource using terrafom: VPC network.
 4. Go to second tutorial on modifying terraform plan.
 During this step I learned that using git only from cli is much harder than I remebered. I guess that is why almost no one knows how to do it nowadays. VS code plugin or git Kraken are definately much more user-friendly.
 
+5. First real problems
+After reaching step in which we learn about variables good expierience was already lost. Following tutorial to the letter resulted in error when aplying new configration which was not immediately understood by me. From my understanding error was stating that variables are not resolved correctly. After some time of looking for awnsers I decided to go and check different version of same tutorial, deployed in google cloud editor. There I learned tutorials are not exactly the same an, more importantly, terraform versions differ greatly. 
+
