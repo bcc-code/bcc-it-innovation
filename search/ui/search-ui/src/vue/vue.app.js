@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import singleSpaVue from 'single-spa-vue';
 import Hello from './main.vue'
+// import '../../src/common/styles';
 
 const vueLifecycles = singleSpaVue({
   Vue,
