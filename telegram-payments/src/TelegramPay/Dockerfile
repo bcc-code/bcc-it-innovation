@@ -2,12 +2,13 @@
 WORKDIR /app
 
 # copy csproj and restore as distinct layers
-COPY ./src/*.csproj ./
-RUN dotnet restore
 
-# copy everything else and build
-COPY ./src ./
-RUN dotnet publish -c Release -o out
+COPY ["/telegram-payments/src/TelegramPay/*.csproj", "./telegram-payments/src/TelegramPay/"]
+
+RUN dotnet restore 'telegram-payments/src/TelegramPay/TelegramPay.csproj'
+
+COPY ["/telegram-payments/src/TelegramPay/", "./telegram-payments/src/TelegramPay/"]
+RUN dotnet publish 'telegram-payments/src/TelegramPay/TelegramPay.csproj' -c Release -o out
 
 # build runtime image
 FROM mcr.microsoft.com/dotnet/runtime:5.0
