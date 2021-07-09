@@ -31,7 +31,7 @@ jobs:
         Telegram.ProviderToken: ${{ secrets.TELEGRAM_PROVIDER_TOKEN }}
        
     - name: Build the Docker image
-      run: docker build -f telegram-payments/src/TelegramPay/Dockerfile -t eu.gcr.io/${{secrets.DEV_GCP_PROJECT}}/telegram-payments . --build-arg ASPNETCORE_ENVIRONMENT=Development
+      run: docker build -f telegram-payments/src/TelegramPay/Dockerfile -t eu.gcr.io/${{secrets.DEV_GCP_PROJECT}}/telegram-payments . --build-arg ASPNETCORE_ENVIRONMENT=Development --build-arg ASPNETCORE_URLS='http://+:5005'
       
     - name: Configure Docker to use Google Cloud Platform
       run: gcloud auth configure-docker --quiet
