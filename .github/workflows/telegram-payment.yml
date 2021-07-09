@@ -1,0 +1,45 @@
+name: Telegram Payments Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@master
+      with:
+        project_id: ${{ secrets.DEV_GCP_PROJECT }}
+        service_account_key: ${{ secrets.DEV_GCP_KEY }}
+        export_default_credentials: true
+    - uses: actions/checkout@v2
+  
+    - uses: microsoft/variable-substitution@v1 
+      with:
+        files: "telegram-payments/src/TelegramPay/appsettings.json"
+      env:
+        Telegram.ApiKey: ${{ secrets.TELEGRAM_API_KEY }}
+        Telegram.ProviderToken: ${{ secrets.TELEGRAM_PROVIDER_TOKEN }}
+       
+    - name: Build the Docker image
+      run: docker build -f telegram-payments/src/TelegramPay/Dockerfile -t eu.gcr.io/${{secrets.DEV_GCP_PROJECT}}/telegram-payments . --build-arg ASPNETCORE_ENVIRONMENT=Development
+      
+    - name: Configure Docker to use Google Cloud Platform
+      run: gcloud auth configure-docker --quiet
+      
+    - name: Docker push image
+      run: docker push eu.gcr.io/${{secrets.DEV_GCP_PROJECT}}/telegram-payments
+      
+    - name: Cloud run deploy
+      run: gcloud run deploy telegram-payments --image eu.gcr.io/${{secrets.DEV_GCP_PROJECT}}/telegram-payments --region=europe-west1 --project=${{secrets.DEV_GCP_PROJECT}} --memory=1024M --max-instances=10 --cpu=2 --timeout=120 --port=5005
+
+
+    
+      
