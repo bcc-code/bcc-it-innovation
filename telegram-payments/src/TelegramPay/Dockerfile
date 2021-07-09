@@ -1,7 +1,6 @@
 ﻿FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
 WORKDIR /app
-
-# copy csproj and restore as distinct layers
+ENV ASPNETCORE_URLS=http://+:5005
 
 COPY ["/telegram-payments/src/TelegramPay/*.csproj", "./telegram-payments/src/TelegramPay/"]
 
