@@ -1,9 +1,11 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System.IO;
+using System.Reflection;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace TelegramPay.Bot
+namespace TelegramPay
 {
     class Program
     {
@@ -21,6 +23,8 @@ namespace TelegramPay.Bot
                 })
                 .ConfigureAppConfiguration(x =>
                 {
+                    x.SetBasePath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location))
+                        .AddJsonFile("appsettings.json");
                     x.AddUserSecrets<Program>();
                 })
                 .ConfigureServices((hostContext, services) =>

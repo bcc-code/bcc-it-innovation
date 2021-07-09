@@ -1,7 +1,6 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace TelegramPay.Bot.Commands
+namespace TelegramPay.Commands
 {
     public interface IBotCommand
     {

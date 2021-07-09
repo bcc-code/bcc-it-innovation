@@ -1,4 +1,4 @@
-namespace TelegramPay.Bot
+namespace TelegramPay
 {
     public class ChatMessageEventArgs
     {

@@ -2,21 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TelegramPay.Bot.Commands;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Telegram.Bot;
 using Telegram.Bot.Args;
+using Telegram.Bot.Requests;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
+using TelegramPay.Commands;
+using TelegramPay.Messages;
 
-namespace TelegramPay.Bot
+namespace TelegramPay
 {
     public class TelegramService : IChatService, IDisposable
     {
         private readonly TelegramBotClient _botClient;
+        private readonly IConfiguration _configuration;
         private readonly IServiceProvider _serviceProvider;
         private readonly ILogger<TelegramService> _logger;
         private bool disposedValue;
@@ -27,12 +31,14 @@ namespace TelegramPay.Bot
 
         public TelegramService(IConfiguration configuration, IServiceProvider serviceProvider, ILogger<TelegramService> logger)
         {
+            _configuration = configuration;
             _serviceProvider = serviceProvider;
             _logger = logger;
 
             _botClient = new TelegramBotClient(configuration["Telegram:ApiKey"]);
             _botClient.OnMessage += OnMessage;
             _botClient.OnCallbackQuery += OnCallbackQuery;
+            _botClient.OnUpdate += OnUpdate;
             RegisterCommands();
             _botClient.StartReceiving();
         }
@@ -93,8 +99,8 @@ namespace TelegramPay.Bot
             if (sender is TelegramBotClient client)
             {
                 // This removes the keyboard, but we could also update one here...
-                await client.EditMessageReplyMarkupAsync(e.CallbackQuery.Message.Chat.Id, e.CallbackQuery.Message.MessageId, null);
-
+                // await client.EditMessageReplyMarkupAsync(e.CallbackQuery.Message.Chat.Id, e.CallbackQuery.Message.MessageId, null);
+                
                 Callback?.Invoke(this, new CallbackEventArgs
                 {
                     ChatId = e.CallbackQuery.Message.Chat.Id,
@@ -104,6 +110,24 @@ namespace TelegramPay.Bot
                 });
             }
         }
+        
+        
+        private async void OnUpdate(object? sender, UpdateEventArgs e)
+        {
+            try
+            {
+                var preCheckoutQuery = e.Update.PreCheckoutQuery;
+                if (preCheckoutQuery != null)
+                {
+                    await _botClient.MakeRequestAsync(new AnswerPreCheckoutQueryRequest(preCheckoutQuery.Id));
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error while updating message");
+            }
+        }
+        
 
         public async Task<bool> UpdateMessage(long chatId, int messageId, string? newText, Dictionary<string, string>? buttons = null)
         {
@@ -138,7 +162,7 @@ namespace TelegramPay.Bot
             return inlineKeyboard;
         }
 
-        public async Task<bool> SendMessage(long chatId, string? message, Dictionary<string, string>? buttons = null)
+        public async Task<bool> SendMessage(long chatId, string? message, ParseMode parseMode = ParseMode.MarkdownV2, Dictionary<string, string>? buttons = null)
         {
             try
             {
@@ -146,7 +170,7 @@ namespace TelegramPay.Bot
 
                 _logger.LogTrace("Sending message to {ChatId}: {Message}", chatId, message);
 
-                await _botClient.SendTextMessageAsync(new ChatId(chatId), message, parseMode: ParseMode.MarkdownV2, replyMarkup: GetInlineKeyboard(buttons));
+                await _botClient.SendTextMessageAsync(new ChatId(chatId), message, parseMode, replyMarkup: GetInlineKeyboard(buttons), disableWebPagePreview:true);
                 return true;
             }
             catch (Exception ex)
@@ -156,18 +180,36 @@ namespace TelegramPay.Bot
             }
         }
 
+        public async Task<bool> SendInvoice(int chatId, InputInvoiceMessageContent content)
+        {
+            try
+            {
+                _logger.LogTrace("Sending message to {ChatId}: {Message}", chatId, JsonConvert.SerializeObject(content));
+
+                await _botClient.SendInvoiceAsync(chatId, content.Title, content.Description, content.Payload, content.ProviderToken, string.Empty, "PLN", content.Prices.ToArray());
+                return true;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error while sending message");
+                return false;
+            }
+        }
+
+        public string GetProviderToken() => _configuration["Telegram:ProviderToken"];
+
         public async Task<string> GetChatMemberName(long chatId, int userId)
         {
             var chatMember = await _botClient.GetChatMemberAsync(new ChatId(chatId), userId);
             return chatMember.User.Username ?? chatMember.User.FirstName;
         }
 
-        private string EscapeText(string? source)
+        private string? EscapeText(string? source)
         {
             var charactersToEscape = new[] { "_", "*", "[", "]", "(", ")", "~", "`", ">", "#", "+", "-", "=", "|", "{", "}", ".", "!" };
             foreach (var item in charactersToEscape)
             {
-                source = source.Replace(item, $@"\{item}");
+                source = source?.Replace(item, $@"\{item}");
             }
             return source;
         }

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace TelegramPay.Bot.Commands
+namespace TelegramPay.Commands
 {
-    public class HelpCommand : IBotCommand
+    public class HelpCommand
     {
         private readonly IServiceProvider _serviceProvider;
 
@@ -11,7 +11,7 @@ namespace TelegramPay.Bot.Commands
 
         public string Description => "Get information about the functionality available for this bot";
 
-        public bool InternalCommand => false;
+        public bool InternalCommand => true;
 
         public HelpCommand(IServiceProvider serviceProvider)
         {

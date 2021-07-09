@@ -2,13 +2,12 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using TelegramPay.Bot.Commands;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+using TelegramPay.Commands;
 
-namespace TelegramPay.Bot
+namespace TelegramPay
 {
     public class Bot : IHostedService
     {

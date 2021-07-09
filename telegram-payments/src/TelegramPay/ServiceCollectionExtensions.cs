@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
-using TelegramPay.Bot.Commands;
+using TelegramPay.Commands;
 
-namespace TelegramPay.Bot
+namespace TelegramPay
 {
     public static class ServiceCollectionExtensions
     {
