@@ -2,7 +2,9 @@ name: Telegram Payments Test
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master ]    
+    paths:
+      - telegram-payments/**
   pull_request:
     branches: [ master ]
   workflow_dispatch:
