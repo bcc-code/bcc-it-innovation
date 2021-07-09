@@ -40,7 +40,7 @@ jobs:
       run: docker push eu.gcr.io/${{secrets.DEV_GCP_PROJECT}}/telegram-payments
       
     - name: Cloud run deploy
-      run: gcloud run deploy telegram-payments --image eu.gcr.io/${{secrets.DEV_GCP_PROJECT}}/telegram-payments-test --region=europe-west1 --project=${{secrets.DEV_GCP_PROJECT}} --memory=1024M --max-instances=10 --cpu=2 --timeout=120 --port=5005
+      run: gcloud run deploy telegram-payments --image eu.gcr.io/${{secrets.DEV_GCP_PROJECT}}/telegram-payments --region=europe-west1 --project=${{secrets.DEV_GCP_PROJECT}} --memory=1024M --max-instances=10 --cpu=2 --timeout=120 --port=5005
 
 
     
