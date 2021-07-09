@@ -1,5 +1,6 @@
 <template>
   <div>
-      <input placeholder="Search" />
+    <h1>Vue search</h1>
+    <input placeholder="Search" />
   </div>
 </template>
